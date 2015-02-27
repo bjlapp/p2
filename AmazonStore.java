@@ -1,7 +1,3 @@
-/*
- * TEST PUSH
- */
-
 package p2;
 
 import java.util.Scanner;
