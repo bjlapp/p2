@@ -12,6 +12,7 @@ public class DLinkedList<E> implements ListADT<E>{
 		tail = new Listnode<E>(null);
 		numItems = 0;
 	}
+	
 	@Override
 	public void add(E item) {
 		
@@ -20,13 +21,17 @@ public class DLinkedList<E> implements ListADT<E>{
 		}
 		
 		Listnode<E> newnode = new Listnode<E>(item);
-		
-		Listnode<E> curr = head;
-		while(curr.getNext()!=null){
-			curr = curr.getNext();
+		if(head==null){
+			head = newnode;
 		}
-		curr.setNext(newnode);
-		newnode.setPrev(curr);
+		tail.setNext(newnode);
+		//Listnode<E> curr = head;
+		/*while(curr.getNext()!=null){
+			curr = curr.getNext();
+		}*/
+
+		//curr.setNext(newnode);
+		newnode.setPrev(tail);
 		tail = newnode;
 		numItems++;
 		
