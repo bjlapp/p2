@@ -8,8 +8,8 @@ public class DLinkedList<E> implements ListADT<E>{
  	
 	
 	public DLinkedList(){
-		head = new Listnode<E>(null);
-		tail = new Listnode<E>(null);
+		this.head = new Listnode<E>(null);
+		this.tail = new Listnode<E>(null);
 		numItems = 0;
 	}
 	
@@ -21,7 +21,7 @@ public class DLinkedList<E> implements ListADT<E>{
 		}
 		
 		Listnode<E> newnode = new Listnode<E>(item);
-		if(head==null){
+		if(numItems==0){
 			head = newnode;
 			tail = newnode;
 			numItems++;
@@ -29,15 +29,17 @@ public class DLinkedList<E> implements ListADT<E>{
 		}
 		
 		tail.setNext(newnode);
+		newnode.setPrev(tail);
+		tail = newnode;
+		numItems++;
+		
 		//Listnode<E> curr = head;
 		/*while(curr.getNext()!=null){
 			curr = curr.getNext();
 		}*/
 
 		//curr.setNext(newnode);
-		newnode.setPrev(tail);
-		tail = newnode;
-		numItems++;
+		
 		
 		}
 
@@ -96,7 +98,7 @@ public class DLinkedList<E> implements ListADT<E>{
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
-		return (numItems!=0);
+		return (numItems==0);
 	}
 
 	@Override
