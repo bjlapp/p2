@@ -69,14 +69,14 @@ public class DLinkedList<E> implements ListADT<E>{
 	public boolean contains(E item) {
 		// TODO Auto-generated method stub
 		Listnode<E> curr = head;
-			if(item==head){
+			if(item.equals(head.getData())){
 				return true;
-			}else if(head==tail){
+			}else if(head.equals(tail)){
 				return false;
 			}
 		for(int i = 1; i < numItems; i++){
 			curr = curr.getNext();
-			if(curr==item){
+			if(curr.getData().equals(item)){
 				return true;
 			}
 		}
@@ -111,6 +111,7 @@ public class DLinkedList<E> implements ListADT<E>{
 		 if(pos==0){
 			 head = head.getNext();
 			 head.setPrev(null);
+			 numItems--;
 			 return curr.getData();
 		 }
 		 for(int i = 0; i < pos-1; i++){
@@ -119,6 +120,7 @@ public class DLinkedList<E> implements ListADT<E>{
 		 E remove = curr.getNext().getData();
 		 curr.setNext(curr.getNext().getNext());
 		 curr.getNext().setPrev(curr);
+		 numItems--;
 		 return remove;
 	}
 
