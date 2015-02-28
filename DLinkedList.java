@@ -24,6 +24,7 @@ public class DLinkedList<E> implements ListADT<E>{
 		if(head==null){
 			head = newnode;
 		}
+		
 		tail.setNext(newnode);
 		//Listnode<E> curr = head;
 		/*while(curr.getNext()!=null){
