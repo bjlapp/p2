@@ -23,6 +23,9 @@ public class DLinkedList<E> implements ListADT<E>{
 		Listnode<E> newnode = new Listnode<E>(item);
 		if(head==null){
 			head = newnode;
+			tail = newnode;
+			numItems++;
+			return;
 		}
 		
 		tail.setNext(newnode);
