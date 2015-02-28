@@ -11,6 +11,7 @@ public class DLinkedList<E> implements ListADT<E>{
 		this.head = new Listnode<E>(null);
 		this.tail = new Listnode<E>(null);
 		numItems = 0;
+		//
 	}
 	
 	@Override
