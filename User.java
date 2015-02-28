@@ -24,6 +24,10 @@ public class User {
      * @param credit amount of credit the user had in $ 
      */
 	public User(String username, String passwd, int credit){
+		this.username = username;
+		this.passwd = passwd;
+		this.credit = credit;
+		//TODO (Wishlist construction)
 	}
 	
 	/**
@@ -33,7 +37,11 @@ public class User {
      * @return true if credentials correct, false otherwise
      */
 	public boolean checkLogin(String username, String passwd){
-		return false;
+		if(this.username.equals(username) && this.passwd.equals(passwd)){
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	/**
@@ -42,6 +50,7 @@ public class User {
      * @param product the Product to add
      */
 	public void addToWishList(Product product){
+		//TODO
 	}
 	
 	/**
@@ -51,6 +60,7 @@ public class User {
      * @return the product on success, null if no such product found
      */
 	public Product removeFromWishList(String productName){
+		//TODO
 		return null;
 	}
 	
@@ -59,6 +69,7 @@ public class User {
 	 * @param printStream The printstream object on which to print out the wishlist
      */
 	public void printWishList(PrintStream printStream){
+		//TODO
 	}
 	
 	/**
@@ -72,6 +83,7 @@ public class User {
      * @throws InsufficientCreditException if price > credit 
      */
 	public boolean buy(String productName) throws InsufficientCreditException{
+		//TODO
 		return false;
 	}
 	
