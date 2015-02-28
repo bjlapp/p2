@@ -27,7 +27,7 @@ public class User {
 		this.username = username;
 		this.passwd = passwd;
 		this.credit = credit;
-		//TODO (Wishlist construction)
+		this.wishList = new DLinkedList<Product>();
 	}
 	
 	/**
@@ -50,7 +50,21 @@ public class User {
      * @param product the Product to add
      */
 	public void addToWishList(Product product){
-		//TODO
+		if(this.wishList.contains(product)){
+			return;
+		}
+		if(this.wishList.size() == 0){
+			this.wishList.add(product);
+			return;
+		}
+		
+		int price = product.getPrice();
+		for(int i=0; i<this.wishList.size(); i++){
+			if(this.wishList.get(i).getPrice() < price){
+				this.wishList.add(i-1, product);
+				return;
+			}
+		}
 	}
 	
 	/**
@@ -60,7 +74,11 @@ public class User {
      * @return the product on success, null if no such product found
      */
 	public Product removeFromWishList(String productName){
-		//TODO
+		for(int i=0; i<this.wishList.size(); i++){
+			if(this.wishList.get(i).getName().equals(productName)){
+				return this.wishList.remove(i);
+			}
+		}
 		return null;
 	}
 	
@@ -83,7 +101,18 @@ public class User {
      * @throws InsufficientCreditException if price > credit 
      */
 	public boolean buy(String productName) throws InsufficientCreditException{
-		//TODO
+		for(int i=0; i<this.wishList.size(); i++){
+			Product currItem = this.wishList.get(i);
+			if(currItem.getName().equals(productName)){
+				if(this.credit < currItem.getPrice()){
+					this.wishList.remove(i);
+					this.credit = this.credit - currItem.getPrice();
+					return true;
+				} else{
+					throw new InsufficientCreditException();
+				}
+			}
+		}
 		return false;
 	}
 	
