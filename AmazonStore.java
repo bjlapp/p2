@@ -99,14 +99,14 @@ public class AmazonStore {
 			return;
 		}
 		while(text.hasNextLine()){
-		String str = text.nextLine();
-		String[] strArray = str.split("#");
-		products.add(new Product(strArray[0],strArray[1],
-				Integer.parseInt(strArray[2]),Float.parseFloat(strArray[3])));
+			String str = text.nextLine();
+			String[] strArray = str.split("#");
+			products.add(new Product(strArray[0],strArray[1],
+					Integer.parseInt(strArray[2]),Float.parseFloat(strArray[3])));
 		}
-		
-		
-		
+
+
+
 	}
 
 	/**
@@ -130,47 +130,47 @@ public class AmazonStore {
 			System.out.println("Error: Cannot access file");
 			return;
 		}
-		
+
 		String str = text.nextLine();
-		
+
 		String[] strArray = str.split("#");
 		currentUser = new User(strArray[0],strArray[1],Integer.parseInt(strArray[2]));
-		
-		
-		str = text.nextLine();
-		strArray = str.split("#");
-		products.add(new Product(strArray[0],strArray[1],
-				Integer.parseInt(strArray[2]),Float.parseFloat(strArray[3])));
-		
+
+
+		//str = text.nextLine();
+		//strArray = str.split("#");
+		//products.add(new Product(strArray[0],strArray[1],
+		//		Integer.parseInt(strArray[2]),Float.parseFloat(strArray[3])));
+
 		String productName;
 		while(text.hasNextLine()){
 			productName = text.nextLine();
 			for(int i = 0; i < products.size(); i++){
-			if(products.get(i).getName().equals(productName)){
-				currentUser.addToWishList(products.get(i));
+				if(products.get(i).getName().equals(productName)){
+					currentUser.addToWishList(products.get(i));
+				}
 			}
-			}
-			
+
 		}
 
-		
+
 	}
 
 	/**
 	 * See sample outputs
-     * Prints the entire store inventory formatted by category
-     * The input text file for products is already grouped by category, use the same order as given in the text file 
-     * format:
-     * <CATEGORY1>
-     * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
-     * ...
-     * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
-     * 
-     * <CATEGORY2>
-     * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
-     * ...
-     * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
-     */
+	 * Prints the entire store inventory formatted by category
+	 * The input text file for products is already grouped by category, use the same order as given in the text file 
+	 * format:
+	 * <CATEGORY1>
+	 * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
+	 * ...
+	 * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
+	 * 
+	 * <CATEGORY2>
+	 * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
+	 * ...
+	 * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
+	 */
 	public static void printByCategory(){
 		String category = null;
 		for(int i = 0; i < products.size(); i++){
@@ -182,7 +182,7 @@ public class AmazonStore {
 		}
 	}
 
-	
+
 	/**
 	 * Interacts with the user by processing commands
 	 * 
