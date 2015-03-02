@@ -1,5 +1,7 @@
 package p2;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 
@@ -65,7 +67,13 @@ public class AmazonStore {
 	 * @returns the currentUser 
 	 */
 	public static User login(String username, String passwd){
-		return null;
+		for(int i = 0; i < users.size(); i++){
+			if(users.get(i).checkLogin(username, passwd)){
+				currentUser = users.get(i);
+				return currentUser;
+			}
+		}
+		return currentUser;
 	}
 
 	/**
@@ -78,6 +86,27 @@ public class AmazonStore {
 	 * @param fileName name of the file to read
 	 */
 	public static void loadProducts(String fileName){
+		Scanner text = null;
+		try {
+			//creates the file 
+			File inFile = new File(fileName);
+			//creates scanner for the file
+			text = new Scanner(inFile);
+
+		} catch (FileNotFoundException e) {
+			//catches the bad file and exits program accordingly
+			System.out.println("Error: Cannot access file");
+			return;
+		}
+		while(text.hasNextLine()){
+		String str = text.nextLine();
+		String[] strArray = str.split("#");
+		products.add(new Product(strArray[0],strArray[1],
+				Integer.parseInt(strArray[2]),Float.parseFloat(strArray[3])));
+		}
+		
+		
+		
 	}
 
 	/**
@@ -89,6 +118,42 @@ public class AmazonStore {
 	 * @param fileName name of the file to read
 	 */
 	public static void loadUser(String fileName){
+		Scanner text = null;
+		try {
+			//creates the file 
+			File inFile = new File(fileName);
+			//creates scanner for the file
+			text = new Scanner(inFile);
+
+		} catch (FileNotFoundException e) {
+			//catches the bad file and exits program accordingly
+			System.out.println("Error: Cannot access file");
+			return;
+		}
+		
+		String str = text.nextLine();
+		
+		String[] strArray = str.split("#");
+		currentUser = new User(strArray[0],strArray[1],Integer.parseInt(strArray[2]));
+		
+		
+		str = text.nextLine();
+		strArray = str.split("#");
+		products.add(new Product(strArray[0],strArray[1],
+				Integer.parseInt(strArray[2]),Float.parseFloat(strArray[3])));
+		
+		String productName;
+		while(text.hasNextLine()){
+			productName = text.nextLine();
+			for(int i = 0; i < products.size(); i++){
+			if(products.get(i).getName().equals(productName)){
+				currentUser.addToWishList(products.get(i));
+			}
+			}
+			
+		}
+
+		
 	}
 
 	/**
@@ -107,6 +172,14 @@ public class AmazonStore {
      * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
      */
 	public static void printByCategory(){
+		String category = null;
+		for(int i = 0; i < products.size(); i++){
+			if(!(products.get(i).getCategory().equals(category))){
+				System.out.println(products.get(i).getCategory());
+				category = products.get(i).getCategory();
+			}
+			System.out.println(products.get(i).toString());
+		}
 	}
 
 	
