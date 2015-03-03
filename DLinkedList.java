@@ -46,7 +46,6 @@ public class DLinkedList<E> implements ListADT<E>{
 
 	@Override
 	public void add(int pos, E item) {
-		// TODO Auto-generated method stub
 		//Listnode<E> newnode = new Listnode<E>(item);
 		Listnode<E> curr = head;
 		if(pos == 0){
@@ -67,7 +66,6 @@ public class DLinkedList<E> implements ListADT<E>{
 
 	@Override
 	public boolean contains(E item) {
-		// TODO Auto-generated method stub
 		Listnode<E> curr = head;
 			if(item.equals(head.getData())){
 				return true;
@@ -85,7 +83,6 @@ public class DLinkedList<E> implements ListADT<E>{
 
 	@Override
 	public E get(int pos) {
-		// TODO Auto-generated method stub
 		Listnode<E> curr = head;
 		/*
 		if(pos==0){
@@ -100,13 +97,11 @@ public class DLinkedList<E> implements ListADT<E>{
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
 		return (numItems==0);
 	}
 
 	@Override
 	public E remove(int pos) {
-		// TODO Auto-generated method stub
 		 Listnode<E> curr = head;
 		 if(pos==0){
 			 head = head.getNext();
@@ -126,7 +121,6 @@ public class DLinkedList<E> implements ListADT<E>{
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
 		
 		return numItems;
 	}
