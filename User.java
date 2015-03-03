@@ -60,8 +60,8 @@ public class User {
 		
 		int price = product.getPrice();
 		for(int i=0; i<this.wishList.size(); i++){
-			if(this.wishList.get(i).getPrice() < price){
-				this.wishList.add(i-1, product);
+			if(this.wishList.get(i).getPrice() > price){
+				this.wishList.add(i, product);
 				return;
 			}
 		}
@@ -109,7 +109,7 @@ public class User {
 					this.credit = this.credit - currItem.getPrice();
 					return true;
 				} else{
-					throw new InsufficientCreditException();
+					throw new InsufficientCreditException("Insufficient funds for " + productName);
 				}
 			}
 		}
