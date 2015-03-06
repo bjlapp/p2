@@ -69,8 +69,9 @@ public class AmazonStore {
 	public static User login(String username, String passwd){
 		for(int i = 0; i < users.size(); i++){
 			if(users.get(i).checkLogin(username, passwd)){
-				currentUser = users.get(i);
-				return currentUser;
+				//currentUser = 
+				return users.get(i);
+				//return currentUser;
 			}
 		}
 		return null;
@@ -135,7 +136,7 @@ public class AmazonStore {
 		
 		String[] strArray = str.split("#");
 		currentUser = new User(strArray[0],strArray[1],Integer.parseInt(strArray[2]));
-		
+		users.add(currentUser);
 		/*
 		str = text.nextLine();
 		strArray = str.split("#");
@@ -153,7 +154,7 @@ public class AmazonStore {
 			
 		}
 
-		
+		//currentUser = null;
 	}
 
 	/**
