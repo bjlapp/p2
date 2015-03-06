@@ -110,7 +110,7 @@ public class User {
 		for(int i=0; i<this.wishList.size(); i++){
 			Product currItem = this.wishList.get(i);
 			if(currItem.getName().equals(productName)){
-				if(this.credit < currItem.getPrice()){
+				if(this.credit >= currItem.getPrice()){
 					this.wishList.remove(i);
 					this.credit = this.credit - currItem.getPrice();
 					return true;
