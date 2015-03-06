@@ -25,12 +25,11 @@ public class AmazonStore {
 		if (args.length < 2) {
 			System.out.println("Usage: java AmazonStore [PRODUCT_FILE] [USER1_FILE] [USER2_FILE] ...");
 			System.exit(0);
-			
 		}
 
 		//load store products
 		loadProducts(args[0]);
-		
+
 		//load users one file at a time
 		for(int i=1; i<args.length; i++)
 			loadUser(args[i]);
@@ -75,7 +74,7 @@ public class AmazonStore {
 				return currentUser;
 			}
 		}
-		return null;
+		return currentUser;
 	}
 
 	/**
@@ -101,14 +100,14 @@ public class AmazonStore {
 			return;
 		}
 		while(text.hasNextLine()){
-		String str = text.nextLine();
-		String[] strArray = str.split("#");
-		products.add(new Product(strArray[0],strArray[1],
-				Integer.parseInt(strArray[2]),Float.parseFloat(strArray[3])));
+			String str = text.nextLine();
+			String[] strArray = str.split("#");
+			products.add(new Product(strArray[0],strArray[1],
+					Integer.parseInt(strArray[2]),Float.parseFloat(strArray[3])));
 		}
-		
-		
-		
+
+
+
 	}
 
 	/**
@@ -132,61 +131,45 @@ public class AmazonStore {
 			System.out.println("Error: Cannot access file");
 			return;
 		}
-		
+
 		String str = text.nextLine();
-		
+
 		String[] strArray = str.split("#");
 		currentUser = new User(strArray[0],strArray[1],Integer.parseInt(strArray[2]));
-<<<<<<< Updated upstream
-		
-		/*
-		str = text.nextLine();
-		strArray = str.split("#");
-		products.add(new Product(strArray[0],strArray[1],
-				Integer.parseInt(strArray[2]),Float.parseFloat(strArray[3])));
-		*/
-=======
 
 		
 
->>>>>>> Stashed changes
 		String productName;
 		//System.out.println(products.size());
 		while(text.hasNextLine()){
 			productName = text.nextLine();
 			for(int i = 0; i < products.size(); i++){
-<<<<<<< Updated upstream
-			if(products.get(i).getName().equals(productName)){
-				currentUser.addToWishList(products.get(i));
-=======
 				 if(products.get(i).getName().equals(productName)){
 					//System.out.println(products.get(i).toString());
 					currentUser.addToWishList(products.get(i));
 				}
->>>>>>> Stashed changes
 			}
-			}
-			
+
 		}
 
-		
+
 	}
 
 	/**
 	 * See sample outputs
-     * Prints the entire store inventory formatted by category
-     * The input text file for products is already grouped by category, use the same order as given in the text file 
-     * format:
-     * <CATEGORY1>
-     * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
-     * ...
-     * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
-     * 
-     * <CATEGORY2>
-     * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
-     * ...
-     * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
-     */
+	 * Prints the entire store inventory formatted by category
+	 * The input text file for products is already grouped by category, use the same order as given in the text file 
+	 * format:
+	 * <CATEGORY1>
+	 * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
+	 * ...
+	 * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
+	 * 
+	 * <CATEGORY2>
+	 * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
+	 * ...
+	 * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
+	 */
 	public static void printByCategory(){
 		String category = null;
 		for(int i = 0; i < products.size(); i++){
@@ -198,7 +181,7 @@ public class AmazonStore {
 		}
 	}
 
-	
+
 	/**
 	 * Interacts with the user by processing commands
 	 * 
@@ -222,78 +205,29 @@ public class AmazonStore {
 					System.out.println("Invalid Command");
 					continue;
 				}
-				if(commands.length > 2){
-					System.out.println("Invalid Command");
-					continue;
-				}
 				switch(commands[0].charAt(0)){
 				case 'v':
 					if(commands[1].equals("all")){
 						printByCategory();
-<<<<<<< Updated upstream
-					}
-					if(commands[1].equals("wishlist")){
-						System.out.println("wishlist");
-						//TODO
-					}
-					if(commands[1].equals("instock")){
-						System.out.println("instock");
-						//TODO
-=======
 					}else if(commands[1].equals("wishlist")){
 						currentUser.printWishList(System.out);
 						
->>>>>>> Stashed changes
 					}
 					break;
 
 				case 's':
-					String string = commands[1];
-					for(int i=0; i<products.size(); i++){
-						Product currProduct = products.get(i);
-						if(currProduct.getName().contains(string) || 
-								currProduct.getCategory().contains(string)){
-							System.out.println(currProduct);
-						}
-					}
 					break;
 
 				case 'a':
-					String product = commands[1];
-					boolean notFound = true;
-					for(int i=0; i<products.size(); i++){
-						Product currProduct = products.get(i);
-						if(currProduct.getName().equals(product)){
-							currentUser.addToWishList(currProduct);
-							notFound = false;
-						} 
-					}
-					if(notFound){
-						System.out.println("Product not found");
-					}
 					break;
 
 				case 'r':
-					String product1 = commands[1];
-					boolean notFound1 = true;
-					for(int i=0; i<products.size(); i++){
-						Product currProduct = products.get(i);
-						if(currProduct.getName().equals(product1)){
-							currentUser.removeFromWishList(product1);
-							notFound = false;
-						}
-					}
-					if(notFound1){
-						System.out.println("Product not found");
-					}
 					break;
 
 				case 'b':
 					break;
 
 				case 'c':
-					int credit = currentUser.getCredit();
-					System.out.println("$"+credit);
 					break;
 
 				case 'l':
