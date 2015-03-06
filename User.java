@@ -60,11 +60,7 @@ public class User {
 		
 		int price = product.getPrice();
 		for(int i=0; i<this.wishList.size(); i++){
-<<<<<<< Updated upstream
-			if(this.wishList.get(i).getPrice() > price){
-=======
 			if(this.wishList.get(i).getPrice() <= price){
->>>>>>> Stashed changes
 				this.wishList.add(i, product);
 				return;
 			}
@@ -84,6 +80,7 @@ public class User {
 			if(this.wishList.get(i).getName().equals(productName)){
 				return this.wishList.remove(i);
 			}
+			
 		}
 		return null;
 	}
@@ -118,7 +115,7 @@ public class User {
 					this.credit = this.credit - currItem.getPrice();
 					return true;
 				} else{
-					throw new InsufficientCreditException("Insufficient funds for " + productName);
+					throw new InsufficientCreditException();
 				}
 			}
 		}
