@@ -270,10 +270,12 @@ public class AmazonStore {
 						for(int i=0; i<inStock.size(); i++){
 							String productName = inStock.get(i).getName();
 							try{
-								currentUser.buy(productName);
+								if(currentUser.buy(productName)){
 								System.out.println("Bought " + productName);
-							} catch(InsufficientCreditException ic){
+								}
 								
+							} catch(InsufficientCreditException ic){
+								System.out.println("Insufficient funds for " + productName );
 							}
 						}
 					break;
