@@ -219,8 +219,9 @@ public class AmazonStore {
 						currentUser.printWishList(System.out);
 					}
 					if(commands[1].equals("instock")){
-						System.out.println("instock");
-						//TODO
+						for(int i = 0; i < inStock.size(); i++){
+						System.out.println(inStock.get(i));
+						}
 					}
 					break;
 
