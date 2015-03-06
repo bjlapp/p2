@@ -115,7 +115,7 @@ public class User {
 					this.credit = this.credit - currItem.getPrice();
 					return true;
 				} else{
-					throw new InsufficientCreditException();
+					throw new InsufficientCreditException("Insufficient funds for " +productName);
 				}
 			}
 		}

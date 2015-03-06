@@ -267,7 +267,15 @@ public class AmazonStore {
 					break;
 
 				case 'b':
-					//TODO
+						for(int i=0; i<inStock.size(); i++){
+							String productName = inStock.get(i).getName();
+							try{
+								currentUser.buy(productName);
+								System.out.println("Bought " + productName);
+							} catch(InsufficientCreditException ic){
+								
+							}
+						}
 					break;
 
 				case 'c':
