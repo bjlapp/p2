@@ -25,6 +25,7 @@ public class AmazonStore {
 		if (args.length < 2) {
 			System.out.println("Usage: java AmazonStore [PRODUCT_FILE] [USER1_FILE] [USER2_FILE] ...");
 			System.exit(0);
+			
 		}
 
 		//load store products
