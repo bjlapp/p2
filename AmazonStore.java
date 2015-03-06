@@ -2,6 +2,7 @@ package p2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 
@@ -135,6 +136,7 @@ public class AmazonStore {
 		
 		String[] strArray = str.split("#");
 		currentUser = new User(strArray[0],strArray[1],Integer.parseInt(strArray[2]));
+<<<<<<< Updated upstream
 		
 		/*
 		str = text.nextLine();
@@ -142,12 +144,25 @@ public class AmazonStore {
 		products.add(new Product(strArray[0],strArray[1],
 				Integer.parseInt(strArray[2]),Float.parseFloat(strArray[3])));
 		*/
+=======
+
+		
+
+>>>>>>> Stashed changes
 		String productName;
+		//System.out.println(products.size());
 		while(text.hasNextLine()){
 			productName = text.nextLine();
 			for(int i = 0; i < products.size(); i++){
+<<<<<<< Updated upstream
 			if(products.get(i).getName().equals(productName)){
 				currentUser.addToWishList(products.get(i));
+=======
+				 if(products.get(i).getName().equals(productName)){
+					//System.out.println(products.get(i).toString());
+					currentUser.addToWishList(products.get(i));
+				}
+>>>>>>> Stashed changes
 			}
 			}
 			
@@ -190,6 +205,7 @@ public class AmazonStore {
 	 */
 	public static void userMenu(ListADT<Product> inStock){
 
+		PrintStream p=null;
 		boolean done = false;
 		while (!done) 
 		{
@@ -213,6 +229,7 @@ public class AmazonStore {
 				case 'v':
 					if(commands[1].equals("all")){
 						printByCategory();
+<<<<<<< Updated upstream
 					}
 					if(commands[1].equals("wishlist")){
 						System.out.println("wishlist");
@@ -221,6 +238,11 @@ public class AmazonStore {
 					if(commands[1].equals("instock")){
 						System.out.println("instock");
 						//TODO
+=======
+					}else if(commands[1].equals("wishlist")){
+						currentUser.printWishList(System.out);
+						
+>>>>>>> Stashed changes
 					}
 					break;
 

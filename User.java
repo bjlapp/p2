@@ -60,11 +60,17 @@ public class User {
 		
 		int price = product.getPrice();
 		for(int i=0; i<this.wishList.size(); i++){
+<<<<<<< Updated upstream
 			if(this.wishList.get(i).getPrice() > price){
+=======
+			if(this.wishList.get(i).getPrice() <= price){
+>>>>>>> Stashed changes
 				this.wishList.add(i, product);
 				return;
 			}
 		}
+		this.wishList.add(product);
+		return;
 	}
 	
 	/**
@@ -88,6 +94,9 @@ public class User {
      */
 	public void printWishList(PrintStream printStream){
 		//TODO
+		for(int i = 0; i < wishList.size(); i++){
+		printStream.println(wishList.get(i).toString());
+		}
 	}
 	
 	/**
