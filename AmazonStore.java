@@ -175,6 +175,7 @@ public class AmazonStore {
 		String category = null;
 		for(int i = 0; i < products.size(); i++){
 			if(!(products.get(i).getCategory().equals(category))){
+				System.out.println();
 				System.out.println(products.get(i).getCategory());
 				category = products.get(i).getCategory();
 			}
@@ -243,6 +244,7 @@ public class AmazonStore {
 						if(currProduct.getName().equals(product)){
 							currentUser.addToWishList(currProduct);
 							notFound = false;
+							System.out.println("Added to wishlist");
 						} 
 					}
 					if(notFound){
@@ -257,7 +259,8 @@ public class AmazonStore {
 						Product currProduct = products.get(i);
 						if(currProduct.getName().equals(product1)){
 							currentUser.removeFromWishList(product1);
-							notFound = false;
+							notFound1 = false;
+							System.out.println("Removed from wishlist");
 						}
 					}
 					if(notFound1){
