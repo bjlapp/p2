@@ -1,4 +1,4 @@
-package p2;
+//package p2;
 
 public class DLinkedList<E> implements ListADT<E>{
 

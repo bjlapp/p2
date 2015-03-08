@@ -1,4 +1,4 @@
-package p2;
+//package p2;
 
 /**
  * Generic doubly linked list node. It serves as the basic building block for 

@@ -1,4 +1,4 @@
-package p2;
+//package p2;
 
 import java.io.File;
 import java.io.FileNotFoundException;

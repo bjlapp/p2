@@ -1,4 +1,4 @@
-package p2;
+//package p2;
 
 import java.util.Random;
 import java.io.PrintStream;
@@ -50,9 +50,9 @@ public class User {
      * @param product the Product to add
      */
 	public void addToWishList(Product product){
-		if(this.wishList.contains(product)){
-			return;
-		}
+		//if(this.wishList.contains(product)){
+		//	return;
+		//}
 		if(this.wishList.size() == 0){
 			this.wishList.add(product);
 			return;

@@ -1,4 +1,4 @@
-package p2;
+//package p2;
 
 /**
  * Stores the name, category, price and rating of a product
