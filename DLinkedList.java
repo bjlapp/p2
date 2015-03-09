@@ -1,19 +1,47 @@
+///////////////////////////////////////////////////////////////////////////////
+//                   ALL STUDENTS COMPLETE THESE SECTIONS
+// Main Class File:  AmazonStore.java
+// File:             DlinkedList.java
+// Semester:         CS302 Spring 2015
+//
+// Author:           Adam Converse
+// Email:            acconverse@wisc.edu
+// CS Login:         adam
+// Lecturer's Name:  Jim Skrentny
+// Lab Section:      105
+//
+// Pair Partner:     Brandon Lapp
+// Email:            blapp@wisc.edu
+// CS Login:         brendon
+// Lecturer's Name:  Jim Skrentny
+// Lab Section:      105
+
 //package p2;
 
+/**
+ * Creates and maintains a chain of single linked nodes.  Includes a head and 
+ * tail reference.
+ */
 public class DLinkedList<E> implements ListADT<E>{
 
 	private Listnode<E> head;
 	private Listnode<E> tail;
 	private int numItems;
  	
-	
+	/**
+	 * Constructs a DLinkedList
+	 */
 	public DLinkedList(){
 		this.head = new Listnode<E>(null);
 		this.tail = new Listnode<E>(null);
 		numItems = 0;
 		//
 	}
-	
+	/**
+	 * Adds an item to the end of a chain of nodes.
+	 * @param item the item being added to the chain of nodes
+	 * @return nothing
+	 */
 	@Override
 	public void add(E item) {
 		
@@ -44,6 +72,12 @@ public class DLinkedList<E> implements ListADT<E>{
 		
 		}
 
+	/**
+	 * Adds an item to a chain of nodes at a position
+	 * @param pos position the item should be added at
+	 * @param item the item being added to the chain of nodes
+	 * @return nothing
+	 */
 	@Override
 	public void add(int pos, E item) {
 		//Listnode<E> newnode = new Listnode<E>(item);
@@ -64,6 +98,12 @@ public class DLinkedList<E> implements ListADT<E>{
 		numItems++;
 	}
 
+	/**
+	 * Search through chain and returns true if the item was found in the array.
+	 * False if it was not
+	 * @param item the item to check if it is in the array
+	 * @return true if item found, false if not
+	 */
 	@Override
 	public boolean contains(E item) {
 		Listnode<E> curr = head;
@@ -81,6 +121,11 @@ public class DLinkedList<E> implements ListADT<E>{
 		return false;
 	}
 
+	/**
+	 * Get item at position
+	 * @param pos position of item to get
+	 * @return item at position specified
+	 */
 	@Override
 	public E get(int pos) {
 		Listnode<E> curr = head;
@@ -95,11 +140,20 @@ public class DLinkedList<E> implements ListADT<E>{
 		return curr.getData();
 	}
 
+	/**
+	 * Return true if list is empty false if not
+	 * @return true if list is empty false if not
+	 */
 	@Override
 	public boolean isEmpty() {
 		return (numItems==0);
 	}
 
+	/**
+	 * Remove item at position
+	 * @param pos position of item to be removed
+	 * @return return item removed
+	 */
 	@Override
 	public E remove(int pos) {
 		 Listnode<E> curr = head;
@@ -119,6 +173,10 @@ public class DLinkedList<E> implements ListADT<E>{
 		 return remove;
 	}
 
+	/**
+	 * Return size of list
+	 * @return size of list
+	 */
 	@Override
 	public int size() {
 		

@@ -1,10 +1,32 @@
+///////////////////////////////////////////////////////////////////////////////
+//                   ALL STUDENTS COMPLETE THESE SECTIONS
+// Title:            p2
+// Files:            DLinkedList, InsufficientCreditException, ListADT,
+//					 Listnode, Product, User
+// Semester:         CS302 Spring 2015
+//
+// Author:           Adam Converse
+// Email:            acconverse@wisc.edu
+// CS Login:         adam
+// Lecturer's Name:  Jim Skrentny
+// Lab Section:      105
+//
+// Pair Partner:     Brandon Lapp
+// Email:            blapp@wisc.edu
+// CS Login:         brendon
+// Lecturer's Name:  Jim Skrentny
+// Lab Section:      105
+
 //package p2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-
+/**
+ * Main class that runs the amazon store.  Handles user input and validation.
+ *
+ */
 public class AmazonStore {
 
 	//Store record of users and products
@@ -20,9 +42,11 @@ public class AmazonStore {
 	public static void main(String args[]) {
 
 
-		//Populate the two lists using the input files: Products.txt User1.txt User2.txt ... UserN.txt
+		//Populate the two lists using the input files: Products.txt User1.txt 
+		//User2.txt ... UserN.txt
 		if (args.length < 2) {
-			System.out.println("Usage: java AmazonStore [PRODUCT_FILE] [USER1_FILE] [USER2_FILE] ...");
+			System.out.println("Usage: java AmazonStore [PRODUCT_FILE] "
+					+ "[USER1_FILE] [USER2_FILE] ...");
 			System.exit(0);
 		}
 
@@ -52,7 +76,8 @@ public class AmazonStore {
 			else
 				System.out.println("Incorrect username or password");
 
-			System.out.println("Enter 'exit' to exit program or anything else to go back to login");
+			System.out.println("Enter 'exit' to exit program or anything else "
+					+ "to go back to login");
 			if(stdin.nextLine().equals("exit"))
 				done = true;
 		}
@@ -60,7 +85,8 @@ public class AmazonStore {
 	}
 
 	/**
-	 * Tries to login for the given credentials. Updates the currentUser if successful login
+	 * Tries to login for the given credentials. Updates the currentUser if 
+	 * successful login
 	 * 
 	 * @param username name of user
 	 * @param passwd password of user
@@ -79,7 +105,8 @@ public class AmazonStore {
 	/**
 	 * Reads the specified file to create and load products into the store.
 	 * Every line in the file has the format: <NAME>#<CATEGORY>#<PRICE>#<RATING>
-	 * Create new products based on the attributes specified in each line and insert them into the products list
+	 * Create new products based on the attributes specified in each line and 
+	 * insert them into the products list
 	 * Order of products list should be the same as the products in the file
 	 * For any problem in reading the file print: 'Error: Cannot access file'
 	 * 
@@ -112,7 +139,8 @@ public class AmazonStore {
 	/**
 	 * Reads the specified file to create and load a user into the store.
 	 * The first line in the file has the format:<NAME>#<PASSWORD>#<CREDIT>
-	 * Every other line after that is a name of a product in the user's wishlist, format:<NAME>
+	 * Every other line after that is a name of a product in the user's 
+	 * wishlist, format:<NAME>
 	 * For any problem in reading the file print: 'Error: Cannot access file'
 	 * 
 	 * @param fileName name of the file to read
@@ -134,7 +162,8 @@ public class AmazonStore {
 		String str = text.nextLine();
 		
 		String[] strArray = str.split("#");
-		currentUser = new User(strArray[0],strArray[1],Integer.parseInt(strArray[2]));
+		currentUser = new User(strArray[0],strArray[1],Integer.
+				parseInt(strArray[2]));
 		users.add(currentUser);
 		/*
 		str = text.nextLine();
@@ -159,7 +188,8 @@ public class AmazonStore {
 	/**
 	 * See sample outputs
      * Prints the entire store inventory formatted by category
-     * The input text file for products is already grouped by category, use the same order as given in the text file 
+     * The input text file for products is already grouped by category, use the
+     *  same order as given in the text file 
      * format:
      * <CATEGORY1>
      * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
@@ -200,7 +230,7 @@ public class AmazonStore {
 			//only do something if the user enters at least one character
 			if (input.length() > 0) 
 			{
-				String[] commands = input.split(":");//split on colon, because names have spaces in them
+				String[] commands = input.split(":");
 				if(commands[0].length()>1)
 				{
 					System.out.println("Invalid Command");
@@ -273,11 +303,11 @@ public class AmazonStore {
 							String productName = inStock.get(i).getName();
 							try{
 								if(currentUser.buy(productName)){
-								System.out.println("Bought " + productName);
+									System.out.println("Bought " + productName);
 								}
-								
 							} catch(InsufficientCreditException ic){
-								System.out.println("Insufficient funds for " + productName );
+								System.out.println("Insufficient funds for " + 
+							productName );
 							}
 						}
 					break;

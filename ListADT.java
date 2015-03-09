@@ -1,3 +1,21 @@
+///////////////////////////////////////////////////////////////////////////////
+//                   ALL STUDENTS COMPLETE THESE SECTIONS
+// Main Class File:  AmazonStore.java
+// File:             ListADT.java
+// Semester:         CS302 Spring 2015
+//
+// Author:           Adam Converse
+// Email:            acconverse@wisc.edu
+// CS Login:         adam
+// Lecturer's Name:  Jim Skrentny
+// Lab Section:      105
+//
+// Pair Partner:     Brandon Lapp
+// Email:            blapp@wisc.edu
+// CS Login:         brendon
+// Lecturer's Name:  Jim Skrentny
+// Lab Section:      105
+
 //package p2;
 /**
  * A List is a general container storing a contiguous collection of items,

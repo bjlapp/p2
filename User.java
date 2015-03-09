@@ -1,10 +1,29 @@
+///////////////////////////////////////////////////////////////////////////////
+//                   ALL STUDENTS COMPLETE THESE SECTIONS
+// Main Class File:  AmazonStore.java
+// File:             User.java
+// Semester:         CS302 Spring 2015
+//
+// Author:           Adam Converse
+// Email:            acconverse@wisc.edu
+// CS Login:         adam
+// Lecturer's Name:  Jim Skrentny
+// Lab Section:      105
+//
+// Pair Partner:     Brandon Lapp
+// Email:            blapp@wisc.edu
+// CS Login:         brendon
+// Lecturer's Name:  Jim Skrentny
+// Lab Section:      105
+
 //package p2;
 
 import java.util.Random;
 import java.io.PrintStream;
 
 /**
- * The User class uses DLinkedList to build a price ordered list called 'wishlist' of products 
+ * The User class uses DLinkedList to build a price ordered list called 
+ * 'wishlist' of products 
  * Products with higher Price fields should come earlier in the list.
  */
 public class User {
@@ -17,7 +36,8 @@ public class User {
 	private ListADT<Product> wishList;
 	
 	/**
-     * Constructs a User instance with a name, password, credit and an empty wishlist. 
+     * Constructs a User instance with a name, password, credit and an empty 
+     * wishlist. 
      * 
      * @param username name of user
      * @param passwd password of user
@@ -46,7 +66,8 @@ public class User {
 	
 	/**
      * Adds a product to the user's wishlist. 
-     * Maintain the order of the wishlist from highest priced to lowest priced products.
+     * Maintain the order of the wishlist from highest priced to lowest priced 
+     * products.
      * @param product the Product to add
      */
 	public void addToWishList(Product product){
@@ -86,11 +107,12 @@ public class User {
 	}
 	
 	/**
-     * Print each product in the user's wishlist in its own line using the PrintStream object passed in the argument
-	 * @param printStream The printstream object on which to print out the wishlist
+     * Print each product in the user's wishlist in its own line using the 
+     * PrintStream object passed in the argument
+	 * @param printStream The printstream object on which to print out the 
+	 * wishlist
      */
 	public void printWishList(PrintStream printStream){
-		//TODO
 		for(int i = 0; i < wishList.size(); i++){
 		printStream.println(wishList.get(i).toString());
 		}
@@ -98,9 +120,11 @@ public class User {
 	
 	/**
      * Buys the specified product in the user's wishlist.
-     * Charge the user according to the price of the product by updating the credit
+     * Charge the user according to the price of the product by updating the 
+     * credit
      * Remove the product from the wishlist as well
-     * Throws an InsufficientCreditException if the price of the product is greater than the credit available.
+     * Throws an InsufficientCreditException if the price of the product is 
+     * greater than the credit available.
      * 
      * @param productName name of the product
      * @return true if successfully bought, false if product not found 
@@ -115,7 +139,8 @@ public class User {
 					this.credit = this.credit - currItem.getPrice();
 					return true;
 				} else{
-					throw new InsufficientCreditException("Insufficient funds for " +productName);
+					throw new InsufficientCreditException("Insufficient funds "
+							+ "for " +productName);
 				}
 			}
 		}

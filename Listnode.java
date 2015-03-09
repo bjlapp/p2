@@ -1,3 +1,21 @@
+///////////////////////////////////////////////////////////////////////////////
+//                   ALL STUDENTS COMPLETE THESE SECTIONS
+// Main Class File:  AmazonStore.java
+// File:             Listnode.java
+// Semester:         CS302 Spring 2015
+//
+// Author:           Adam Converse
+// Email:            acconverse@wisc.edu
+// CS Login:         adam
+// Lecturer's Name:  Jim Skrentny
+// Lab Section:      105
+//
+// Pair Partner:     Brandon Lapp
+// Email:            blapp@wisc.edu
+// CS Login:         brendon
+// Lecturer's Name:  Jim Skrentny
+// Lab Section:      105
+
 //package p2;
 
 /**

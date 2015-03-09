@@ -1,3 +1,21 @@
+///////////////////////////////////////////////////////////////////////////////
+//                   ALL STUDENTS COMPLETE THESE SECTIONS
+// Main Class File:  AmazonStore.java
+// File:             Product.java
+// Semester:         CS302 Spring 2015
+//
+// Author:           Adam Converse
+// Email:            acconverse@wisc.edu
+// CS Login:         adam
+// Lecturer's Name:  Jim Skrentny
+// Lab Section:      105
+//
+// Pair Partner:     Brandon Lapp
+// Email:            blapp@wisc.edu
+// CS Login:         brendon
+// Lecturer's Name:  Jim Skrentny
+// Lab Section:      105
+
 //package p2;
 
 /**
@@ -58,7 +76,8 @@ public class Product {
 	}
 	
 	/** 
-     * Returns the Product's information in the following format: <NAME> [Price:$<PRICE> Rating:<RATING> stars]
+     * Returns the Product's information in the following format:
+     * <NAME> [Price:$<PRICE> Rating:<RATING> stars]
      */
 	public String toString(){
 		String toString = this.name + "[Price:$" + this.price + " Rating:" 
